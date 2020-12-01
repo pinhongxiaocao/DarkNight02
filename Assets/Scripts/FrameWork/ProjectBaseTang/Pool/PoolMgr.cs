@@ -73,7 +73,7 @@ public class PoolMgr :BaseManager<PoolMgr>
             }
             catch (System.Exception)
             {
-                Debug.Log("缓存的物体 没有继承IReusable这个接口");
+
             }
             //再掉传进来的委托
             callBack(obj);
@@ -91,7 +91,7 @@ public class PoolMgr :BaseManager<PoolMgr>
                 }
                 catch (System.Exception)
                 {
-                    Debug.Log("缓存的物体 没有继承IReusable这个接口");
+
                 }
                 //再调用传进来的委托
                 callBack(o);
@@ -150,7 +150,7 @@ public class PoolMgr :BaseManager<PoolMgr>
         }
         catch (System.Exception)
         {
-            Debug.Log("没有这个组件");
+
         }
     }
     //清空缓存池 主要用在场景切换

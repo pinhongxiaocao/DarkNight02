@@ -75,8 +75,6 @@
     <Compile Include="Assets\Scripts\FrameWork\MVC\MVC\MVC.cs" />
     <Compile Include="Assets\Scripts\FrameWork\MVC\MVC\Model.cs" />
     <Compile Include="Assets\Scripts\FrameWork\MVC\MVC\View.cs" />
-    <Compile Include="Assets\Scripts\FrameWork\ProjectBaseTang\AStar\AStarMgr.cs" />
-    <Compile Include="Assets\Scripts\FrameWork\ProjectBaseTang\AStar\AStarNode.cs" />
     <Compile Include="Assets\Scripts\FrameWork\ProjectBaseTang\Base\BaseManager.cs" />
     <Compile Include="Assets\Scripts\FrameWork\ProjectBaseTang\Base\SingletonAutoMono.cs" />
     <Compile Include="Assets\Scripts\FrameWork\ProjectBaseTang\Base\SingletonMono.cs" />
@@ -100,9 +98,18 @@
     <Compile Include="Assets\Scripts\Game\GameData\Item.cs" />
     <Compile Include="Assets\Scripts\Game\GameData\ItemsTable.cs" />
     <Compile Include="Assets\Scripts\Game\Model\PlayerModel.cs" />
+    <Compile Include="Assets\Scripts\Game\NPCS\3.Play\BarNpc.cs" />
+    <Compile Include="Assets\Scripts\Game\NPCS\3.Play\BaseNpc.cs" />
     <Compile Include="Assets\Scripts\Game\Others\1.Start\MovieCamera.cs" />
     <Compile Include="Assets\Scripts\Game\Others\1.Start\txtPressAnyKey.cs" />
     <Compile Include="Assets\Scripts\Game\Others\2.Select\CharacterCreator.cs" />
+    <Compile Include="Assets\Scripts\Game\Others\3.Play\BaseEffect.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\3.Play\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\3.Play\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\3.Play\PlayerDir.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\3.Play\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Game\Quest\Quest.cs" />
+    <Compile Include="Assets\Scripts\Game\Quest\Questable.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\1Start\StartPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\2Select\CharacterSelectPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Bag\BagMgr.cs" />
@@ -110,6 +117,7 @@
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Bag\ItemCell.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Bag\TipsPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\MainPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Quest\QuestPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Role\EquipPanel.cs" />
     <None Include="Assets\ArtRes\RPG\Shader\Transparent_Outline.shader" />
     <None Include="Assets\Resources\Json\itemInfo.txt" />

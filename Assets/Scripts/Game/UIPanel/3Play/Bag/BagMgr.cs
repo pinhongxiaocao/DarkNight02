@@ -42,7 +42,7 @@ public class BagMgr : BaseManager<BagMgr>
     }
 
     /// <summary>
-    /// 结束拖动
+    /// 更换装备
     /// </summary>
     public void ChangeEquip()
     {
@@ -63,7 +63,7 @@ public class BagMgr : BaseManager<BagMgr>
                     {
                         //1直接装备 2直接从背包中移除 
                         GameMain.GetInstance().GetModel<PlayerModel>().nowEquips.Add(nowSelectItem.ItemInfo);
-                        GameMain.GetInstance().GetModel<PlayerModel>().equips.Add(nowSelectItem.ItemInfo);
+                        GameMain.GetInstance().GetModel<PlayerModel>().equips.Remove(nowSelectItem.ItemInfo);
 
                     }
                     else //交换装备 比如一把铁剑和一把铜剑
@@ -86,13 +86,34 @@ public class BagMgr : BaseManager<BagMgr>
         }
         else//从装备栏往外拖 
         {
-            1.14
+            
             //当前从角色装备栏 拖出一个装备 并且没有进入任何装备
             if (nowInItem == null||nowInItem.type!=E_Item_Type.Bag) 
             {
+                //就把要下的装备从Equip上删除 在背包中添加
                 GameMain.GetInstance().GetModel<PlayerModel>().nowEquips.Remove(nowSelectItem.ItemInfo);
-                GameMain.GetInstance().GetModel<PlayerModel>().equips.Add(nowInItem.ItemInfo);
+                GameMain.GetInstance().GetModel<PlayerModel>().equips.Add(nowSelectItem.ItemInfo);
 
+                //更新背包
+                UIManager.GetInstance().GetPanel<BagPanel>("BagPanel").ToggleValueChange(E_Bag_Type.Equip);
+                //更新装备面板
+                UIManager.GetInstance().GetPanel<EquipPanel>("EquipPanel").UpdateEquipPanel();
+                //保存数据 TODO
+            }
+            //如果想拖进背包面板
+            else if (nowInItem == null || nowInItem.type == E_Item_Type.Bag) 
+            {
+                //读表
+                Item info = GameDataMgr.GetInstance().GetItemInfo(nowSelectItem.ItemInfo.id);
+                //如果装备类型一样 我们就替换
+                if ((int)nowSelectItem.type == info.equipType) 
+                {
+                    GameMain.GetInstance().GetModel<PlayerModel>().nowEquips.Remove(nowSelectItem.ItemInfo);
+                    GameMain.GetInstance().GetModel<PlayerModel>().nowEquips.Add(nowInItem.ItemInfo);
+
+                    GameMain.GetInstance().GetModel<PlayerModel>().equips.Remove(nowInItem.ItemInfo);
+                    GameMain.GetInstance().GetModel<PlayerModel>().equips.Add(nowSelectItem.ItemInfo);
+                }
                 //更新背包
                 UIManager.GetInstance().GetPanel<BagPanel>("BagPanel").ToggleValueChange(E_Bag_Type.Equip);
                 //更新装备面板
@@ -103,7 +124,6 @@ public class BagMgr : BaseManager<BagMgr>
     }
 
     #region 监听的事件们
-
     private void BeginDragItemCell(ItemCell itemCell)
     {
         //一开始拖动直接隐藏 TipsPanel
@@ -159,6 +179,7 @@ public class BagMgr : BaseManager<BagMgr>
 
         //结束拖动的时候 置空
         nowSelectItem = null;
+        nowInItem = null;
 
         if (nowDragingItemImg == null)
             return;

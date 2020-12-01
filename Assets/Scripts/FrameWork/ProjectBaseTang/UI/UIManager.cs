@@ -111,6 +111,8 @@ public class UIManager : BaseManager<UIManager>
             //得到预设体身上的面板脚本
             T panel = obj.GetComponent<T>();
             panel.ShowMe();
+
+
             //处理面板创建后的逻辑
             if (callBack != null)
             {
@@ -135,7 +137,7 @@ public class UIManager : BaseManager<UIManager>
         }
         else 
         {
-            Debug.Log($"没有{panelName}这个面板");
+
         }
     }
 

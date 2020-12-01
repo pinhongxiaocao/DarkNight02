@@ -5,6 +5,45 @@ using UnityEngine;
 namespace Consts
 {
     /// <summary>
+    /// 一些特效
+    /// </summary>
+    public static class Effects 
+    {
+        public static string GreenClickEffect = "GreenClickEffect";
+    }
+
+    /// <summary>
+    /// 一些标签
+    /// </summary>
+    public static class Tags 
+    {
+        public static string Player = "Player";
+        public static string NPC = "NPC";
+        public static string Ground = "Ground";
+    }
+
+    /// <summary>
+    /// 任务种类
+    /// </summary>
+    public enum E_Quest_Type
+    {
+        None = 0,
+        Gathering,//击杀类任务
+        Talk,//谈话类任务
+        Reach//探险类任务
+    }
+
+    /// <summary>
+    /// 任务状态 TODO状态机
+    /// </summary>
+    public enum E_Quest_Status
+    {
+        Waiting,//等待 未接收状态
+        Accepted,//接收状态 但是未完成
+        Completed,//已完成状态
+    }
+
+    /// <summary>
     /// 背包的页签枚举
     /// </summary>
     public enum E_Bag_Type
@@ -92,6 +131,18 @@ namespace Consts
 
         //****************************************************//
 
+        //*********任务系统的事件************//
+
+        /// <summary>
+        /// 接受任务
+        /// </summary>
+        public static string AcceptQuest = "AcceptQuest";
+        /// <summary>
+        /// 完成任务
+        /// </summary>
+        public static string CompleteQuest = "CompleteQuest";
+        //**********************************//
+
         #endregion
     }
 
@@ -140,6 +191,11 @@ namespace Consts
         /// 第三个场景的角色面板 用来显示角色属性
         /// </summary>
         public static string EquipPanel = "EquipPanel";
+
+        /// <summary>
+        /// 第三个场景的任务面板 用于显示角色的任务
+        /// </summary>
+        public static string QuestPanel = "QuestPanel";
         #endregion
     }
 

@@ -16,6 +16,11 @@ public class ItemCell : BasePanel
     [HideInInspector] public Image imgBK;
     [HideInInspector] public Image imgIcon;
 
+    /// <summary>
+    /// 防止重复添加
+    /// </summary>
+    private bool isOpenDrag = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -115,6 +120,10 @@ public class ItemCell : BasePanel
     /// </summary>
     private void OpenDragEvent()
     {
+        if (isOpenDrag)
+            return;
+
+        isOpenDrag = true;
         //拿到Trigger
         EventTrigger trigger = GetControl<Image>("imgBK").gameObject.GetComponent<EventTrigger>();
         ///EventTrigger中的 拖动

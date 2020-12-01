@@ -37,6 +37,9 @@ public class PlayerModel : Model
     //当前穿戴的装备
     public List<PlayerItemInfo> nowEquips;
 
+    //玩家所拥有的任务
+    public Dictionary<string, Quest> questList = new Dictionary<string, Quest>();
+
     /// <summary>
     /// TODO 
     /// 未来这里肯定是有参构造函数 根据data来设置姓名 ID 之类
