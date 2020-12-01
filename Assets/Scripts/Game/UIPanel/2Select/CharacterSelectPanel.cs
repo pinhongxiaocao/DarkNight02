@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVC;
+using LB_MVC;
 
 public class CharacterSelectPanel : BasePanel
 {

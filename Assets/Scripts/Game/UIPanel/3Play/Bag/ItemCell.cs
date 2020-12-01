@@ -24,7 +24,7 @@ public class ItemCell : BasePanel
         //得到imgBK
         imgBK = GetControl<Image>("imgBK");
         //得到imgIcon
-        imgBK = GetControl<Image>("imgIcon");
+        imgIcon = GetControl<Image>("imgIcon");
         //初始化EventTrigger事件监听
         InitEventTrigger();
     }
@@ -32,18 +32,24 @@ public class ItemCell : BasePanel
 
     //基础道具信息 复合数据结构
     //1 id  2num
-    private ItemInfo itemInfo;
-    public ItemInfo ItemInfo { get => itemInfo;}
-    [SerializeField] private Consts.E_Item_Type type;
+    private PlayerItemInfo itemInfo;
+    public PlayerItemInfo ItemInfo { get => itemInfo;}
+    public Consts.E_Item_Type type;
 
-   
+
 
     /// <summary>
     /// 初始化格子信息
     /// </summary>
-    public void InitInfo(ItemInfo info)
+    public void InitInfo(PlayerItemInfo info)
     {
         this.itemInfo = info;
+        //如果传入的是空 隐藏图片
+        if (info == null) 
+        {
+            imgIcon.gameObject.SetActive(false);
+            return;
+        }
         //根据道具的信息 来更新对象
         Item itemData = GameDataMgr.GetInstance().GetItemInfo(info.id);
         //只要设置了信息 就初始化
@@ -54,6 +60,7 @@ public class ItemCell : BasePanel
         GetControl<Image>("imgIcon").sprite = ResMgr.GetInstance().Load<Sprite>
             ("Icon/" + itemData.icon);
         //数量 用玩家的数据来加载 每一个人是不一样的
+        if(type==E_Item_Type.Bag)//只有背包中的物体 才会有数量
         GetControl<Text>("txtNum").text = info.num.ToString();
         //来判断道具类型 
         if (itemData.type == (int)E_Bag_Type.Equip) 
@@ -144,7 +151,7 @@ public class ItemCell : BasePanel
     /// <param name="data"></param>
     void DragItemCell(BaseEventData data)
     {
-        EventCenter.GetInstance().EventTrigger<ItemCell>(Consts.EventCenter_Events.ItemCellDrag, this);
+        EventCenter.GetInstance().EventTrigger<BaseEventData>(Consts.EventCenter_Events.ItemCellDrag, data);
     }
 
     /// <summary>
@@ -162,9 +169,6 @@ public class ItemCell : BasePanel
     /// <param name="data"></param>
     void EnterItemCell(BaseEventData data)
     {
-        //如果格子信息为空 就返回它
-        if (ItemInfo == null)
-            return;
         EventCenter.GetInstance().EventTrigger<ItemCell>(Consts.EventCenter_Events.ItemCellEnter, this);
 
     }
@@ -175,9 +179,6 @@ public class ItemCell : BasePanel
     /// <param name="data"></param>
     void ExitItemCell(BaseEventData data)
     {
-        //如果格子信息为空 就返回它
-        if (ItemInfo == null)
-            return;
         EventCenter.GetInstance().EventTrigger<ItemCell>(Consts.EventCenter_Events.ItemCellExit, this);
 
     }

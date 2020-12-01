@@ -34,7 +34,7 @@ public class EquipPanel : BasePanel
         itemTrousers = transform.Find("itemTrousers").GetComponent<ItemCell>();
         itemShoes = transform.Find("itemShoes").GetComponent<ItemCell>();
         //更新自己
-        UpdateRolePanel();
+        UpdateEquipPanel();
     }
 
     public override void HideMe()
@@ -58,11 +58,21 @@ public class EquipPanel : BasePanel
     }
     #endregion
 
-    public void UpdateRolePanel() 
+    /// <summary>
+    /// 更新装备面板
+    /// </summary>
+    public void UpdateEquipPanel() 
     {
         //获得现在装备的物体
-        List<ItemInfo> nowEquips = GetModel<PlayerModel>().nowEquips;
+        List<PlayerItemInfo> nowEquips = GetModel<PlayerModel>().nowEquips;
         Item itemInfo;
+        //初始化置空
+        itemHead.InitInfo(null);
+        itemNeck.InitInfo(null);
+        itemWeapon.InitInfo(null);
+        itemCloth.InitInfo(null);
+        itemTrousers.InitInfo(null);
+        itemShoes.InitInfo(null);
         for (int i = 0; i < nowEquips.Count; i++)
         {
             //根据id 来查一下获取了哪一个格子

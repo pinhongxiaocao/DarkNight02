@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVC 
+namespace LB_MVC 
 {
     /// <summary>
     /// 程序入口 继承不自动创建的Mono单例基类
@@ -22,22 +22,7 @@ namespace MVC
             MVC.RegisterController(name, controllerType);
         }
 
-        /// <summary>
-        /// 注册视图
-        /// </summary>
-        /// <param name="view"></param>
-        public void RegisterView(View view)
-        {
-            MVC.RegisterView(view);
-        }
 
-        /// <summary>
-        /// 移除视图
-        /// </summary>
-        public void RemoveView(View view) 
-        {
-            MVC.RemoveView(view);
-        }
         
         /// <summary>
         ///  发送事件告诉大家 游戏开启了 不需要参数

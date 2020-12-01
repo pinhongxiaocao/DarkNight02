@@ -65,9 +65,16 @@ public class PoolMgr :BaseManager<PoolMgr>
         if (poolDic.ContainsKey(name) && poolDic[name].poolList.Count>0)
         {
             GameObject obj = poolDic[name].GetObj();
-            //先调用自己应该完成的接口
-            obj.GetComponent<IReusable>().OnSpawn();
 
+            //如果有这个组件的话
+            try
+            {
+                obj.GetComponent<IReusable>().OnSpawn();
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("缓存的物体 没有继承IReusable这个接口");
+            }
             //再掉传进来的委托
             callBack(obj);
         }
@@ -77,8 +84,15 @@ public class PoolMgr :BaseManager<PoolMgr>
             ResMgr.GetInstance().LoadAsync<GameObject>(name, (o) =>
             {
                 o.name = name;//把对象名改成和池子名字一样
-                //先调用自己应该完成的接口
-                o.GetComponent<IReusable>().OnSpawn();
+                //如果有这个组件的话
+                try
+                {
+                    o.GetComponent<IReusable>().OnSpawn();
+                }
+                catch (System.Exception)
+                {
+                    Debug.Log("缓存的物体 没有继承IReusable这个接口");
+                }
                 //再调用传进来的委托
                 callBack(o);
             });
@@ -129,8 +143,15 @@ public class PoolMgr :BaseManager<PoolMgr>
         {
             poolDic.Add(name,new PoolData(obj,poolObj));//创建一个PoolData并且直接放进去
         }
-        //调用应该完成的方法
-        obj.GetComponent<IReusable>().OnUnspawn();
+        //如果有这个组件的话
+        try
+        {
+            obj.GetComponent<IReusable>().OnSpawn();
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("没有这个组件");
+        }
     }
     //清空缓存池 主要用在场景切换
     public void Clear()

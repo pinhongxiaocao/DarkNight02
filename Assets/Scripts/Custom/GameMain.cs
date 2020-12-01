@@ -1,10 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVC;
+using LB_MVC;
 
 public class GameMain : ApplicationBase<GameMain>
 {
+    /// <summary>
+    /// 注册视图
+    /// </summary>
+    /// <param name="view"></param>
+    public void RegisterView(View view)
+    {
+        LB_MVC.MVC.RegisterView(view);
+    }
+
+    /// <summary>
+    /// 移除视图
+    /// </summary>
+    public void RemoveView(View view)
+    {
+        LB_MVC.MVC.RemoveView(view);
+    }
+
+    /// <summary>
+    /// 获取模型
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public T GetModel<T>()
+        where T : Model
+    {
+        return MVC.GetModel<T>();
+    }
+
+
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);

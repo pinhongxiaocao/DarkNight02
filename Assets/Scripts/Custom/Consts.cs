@@ -9,6 +9,7 @@ namespace Consts
     /// </summary>
     public enum E_Bag_Type
     {
+        None=0,
         Item,
         Equip,
         Gem
@@ -66,7 +67,7 @@ namespace Consts
         /// </summary>
         public static string RegisterBagPanel = "RegisterBagPanel";
 
-        //********背包系统相关的事件(参数全为ItemCell)**********//
+        //********背包系统相关的事件(参数除了拖动中全为ItemCell)**********//
         /// <summary>
         /// 开始拖格子
         /// </summary>

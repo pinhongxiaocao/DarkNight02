@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.IO;
 using System.Collections.Generic;
-using MVC;
+using LB_MVC;
 using UnityEngine;
 
 /// <summary>
@@ -40,7 +40,7 @@ public class GoToPlaySceneCommand : Controller
     void InitPlayerInfo()
     {
         PlayerModel model = GetModel<PlayerModel>();
-        //从视图层来找是否有玩家数据
+        //从数据层来找是否有玩家数据
         if (null != model)
         {
 

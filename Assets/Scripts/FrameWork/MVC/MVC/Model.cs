@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVC
+namespace LB_MVC
 {
     /// <summary>
     /// 模型基类 无需增加V和C的引用 只需要发送消息即可

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVC
+namespace LB_MVC
 {
     /// <summary>
     /// 控制器基类  1处理事件 2获取模型 3获取视图

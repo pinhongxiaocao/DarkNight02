@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace MVC 
+namespace LB_MVC 
 {
     /// <summary>
     /// 视图基类 

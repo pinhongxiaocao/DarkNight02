@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVC;
+using LB_MVC;
 
 /// <summary>
 /// 玩家拥有的基础道具信息
 /// 就是ID和数量
 /// </summary>
 [System.Serializable]
-public class ItemInfo
+public class PlayerItemInfo
 {
     public int id;
     public int num;
@@ -30,12 +30,12 @@ public class PlayerModel : Model
     public int gem;
     public int pro;
     //主要用下面这三个
-    public List<ItemInfo> items;
-    public List<ItemInfo> equips;
-    public List<ItemInfo> gems;
+    public List<PlayerItemInfo> items;
+    public List<PlayerItemInfo> equips;
+    public List<PlayerItemInfo> gems;
 
     //当前穿戴的装备
-    public List<ItemInfo> nowEquips;
+    public List<PlayerItemInfo> nowEquips;
 
     /// <summary>
     /// TODO 
@@ -48,21 +48,21 @@ public class PlayerModel : Model
         money = 9999;
         gem = 100;
 
-        items = new List<ItemInfo>()
+        items = new List<PlayerItemInfo>()
         {
             //系统给它几瓶道具
             //10个红药 道具ID为3
-            new ItemInfo(){id=3,num=10},
+            new PlayerItemInfo(){id=3,num=10},
             //20个蓝药 道具ID为4
-            new ItemInfo(){id=4,num=20}
+            new PlayerItemInfo(){id=4,num=20}
         };
-        equips = new List<ItemInfo>()
+        equips = new List<PlayerItemInfo>()
         {
             //1个匕首 道具ID为1
-            new ItemInfo(){id=1,num=1}
+            new PlayerItemInfo(){id=1,num=1}
         };
-        gems = new List<ItemInfo>();
+        gems = new List<PlayerItemInfo>();
 
-        nowEquips = new List<ItemInfo>();
+        nowEquips = new List<PlayerItemInfo>();
     }
 }

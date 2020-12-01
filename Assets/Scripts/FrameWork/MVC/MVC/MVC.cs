@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVC
+namespace LB_MVC
 {
     /// <summary>
     /// 空接口 在本框架所有的事件参数 都必须继承他

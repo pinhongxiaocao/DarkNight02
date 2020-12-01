@@ -88,10 +88,10 @@ public class BagPanel : BasePanel
     /// 页签的切换
     /// </summary>
     /// <param name="type"></param>
-    void ToggleValueChange(E_Bag_Type type) 
+    public void ToggleValueChange(E_Bag_Type type) 
     {
         //默认数值 是道具列表信息
-        List<ItemInfo> tempInfo=GetModel<PlayerModel>().items;
+        List<PlayerItemInfo> tempInfo=GetModel<PlayerModel>().items;
 
         switch (type)
         {
@@ -129,5 +129,4 @@ public class BagPanel : BasePanel
     }
 
     #endregion
-
 }

@@ -12,7 +12,7 @@ public class TipsPanel : BasePanel
     /// 初始化tips 面板信息
     /// </summary>
     /// <param name="info"></param>
-    public void InitInfo(ItemInfo info) 
+    public void InitInfo(PlayerItemInfo info) 
     {
         //根据道具表中的信息 来更新对象
         Item itemData = GameDataMgr.GetInstance().GetItemInfo(info.id);
