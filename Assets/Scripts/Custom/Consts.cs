@@ -196,6 +196,7 @@ namespace Consts
         /// 第三个场景的任务面板 用于显示角色的任务
         /// </summary>
         public static string QuestPanel = "QuestPanel";
+
         #endregion
     }
 

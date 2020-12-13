@@ -95,11 +95,14 @@
     <Compile Include="Assets\Scripts\Game\Commands\GoToSelectSceneCommand.cs" />
     <Compile Include="Assets\Scripts\Game\Commands\StartGameCommand.cs" />
     <Compile Include="Assets\Scripts\Game\GameData\GameDataMgr.cs" />
-    <Compile Include="Assets\Scripts\Game\GameData\Item.cs" />
-    <Compile Include="Assets\Scripts\Game\GameData\ItemsTable.cs" />
+    <Compile Include="Assets\Scripts\Game\GameData\Player\Item.cs" />
+    <Compile Include="Assets\Scripts\Game\GameData\Player\ItemsTable.cs" />
+    <Compile Include="Assets\Scripts\Game\GameData\Shop\ShopCellItem.cs" />
+    <Compile Include="Assets\Scripts\Game\GameData\Shop\ShopItemTable.cs" />
     <Compile Include="Assets\Scripts\Game\Model\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\Game\NPCS\3.Play\BarNpc.cs" />
     <Compile Include="Assets\Scripts\Game\NPCS\3.Play\BaseNpc.cs" />
+    <Compile Include="Assets\Scripts\Game\NPCS\3.Play\PotionNpc.cs" />
     <Compile Include="Assets\Scripts\Game\Others\1.Start\MovieCamera.cs" />
     <Compile Include="Assets\Scripts\Game\Others\1.Start\txtPressAnyKey.cs" />
     <Compile Include="Assets\Scripts\Game\Others\2.Select\CharacterCreator.cs" />
@@ -119,6 +122,10 @@
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\MainPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Quest\QuestPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Role\EquipPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Shop\OneBtnTipPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Shop\ShopCell.cs" />
+    <Compile Include="Assets\Scripts\Game\UIPanel\3Play\Shop\ShopPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UIPanel\3Play\TipMgr.cs" />
     <None Include="Assets\ArtRes\RPG\Shader\Transparent_Outline.shader" />
     <None Include="Assets\Resources\Json\itemInfo.txt" />
     <None Include="Assets\ArtRes\RPG\Shader\MaskShader.shader" />

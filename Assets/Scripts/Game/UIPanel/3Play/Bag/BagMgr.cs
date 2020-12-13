@@ -59,7 +59,7 @@ public class BagMgr : BaseManager<BagMgr>
                 if ((int)nowInItem.type == info.equipType)
                 {
                     //2判断 装备栏是不是空的 如果是直接放
-                    if (nowInItem.ItemInfo == null)
+                    if (nowInItem?.ItemInfo == null)
                     {
                         //1直接装备 2直接从背包中移除 
                         GameMain.GetInstance().GetModel<PlayerModel>().nowEquips.Add(nowSelectItem.ItemInfo);
@@ -87,7 +87,7 @@ public class BagMgr : BaseManager<BagMgr>
         else//从装备栏往外拖 
         {
             
-            //当前从角色装备栏 拖出一个装备 并且没有进入任何装备
+            //当前从角色装备栏 拖出一个装备 并且没有进入任何背包
             if (nowInItem == null||nowInItem.type!=E_Item_Type.Bag) 
             {
                 //就把要下的装备从Equip上删除 在背包中添加

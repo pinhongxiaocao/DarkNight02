@@ -7,9 +7,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// 每一个格子的复合组件 
-/// 也要继承MVC中的View
-/// 但是目的只是拿数据而已 不用把自己存入MVC系统
+/// 每一个格子的复合组件  
+/// 不用把自己存入MVC系统
 /// </summary>
 public class ItemCell : BasePanel
 {
@@ -17,7 +16,7 @@ public class ItemCell : BasePanel
     [HideInInspector] public Image imgIcon;
 
     /// <summary>
-    /// 防止重复添加
+    /// 防止重复添加拖拽
     /// </summary>
     private bool isOpenDrag = false;
 

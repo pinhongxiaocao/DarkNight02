@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Consts;
 using LB_MVC;
 
 /// <summary>
@@ -53,11 +54,6 @@ public class PlayerModel : Model
 
         items = new List<PlayerItemInfo>()
         {
-            //系统给它几瓶道具
-            //10个红药 道具ID为3
-            new PlayerItemInfo(){id=3,num=10},
-            //20个蓝药 道具ID为4
-            new PlayerItemInfo(){id=4,num=20}
         };
         equips = new List<PlayerItemInfo>()
         {
@@ -67,5 +63,58 @@ public class PlayerModel : Model
         gems = new List<PlayerItemInfo>();
 
         nowEquips = new List<PlayerItemInfo>();
+    }
+
+
+    /// <summary>
+    /// 添加物品 给玩家
+    /// </summary>
+    public void AddItem(PlayerItemInfo info)
+    {
+        Item item = GameDataMgr.GetInstance().GetItemInfo(info.id);
+
+        switch (item.type)
+        {
+            //道具
+            case (int)E_Bag_Type.Item:
+                items.Add(info);
+                break;
+            //装备
+            case (int)E_Bag_Type.Equip:
+                equips.Add(info);
+                break;
+            //宝石
+            case (int)E_Bag_Type.Gem:
+                gems.Add(info);
+                break;
+        }
+    }
+
+    /// <summary>
+    /// 金钱交互
+    /// </summary>
+    public void ChangeMoney(int money)
+    {
+        //判断钱够不够减 避免减成负数
+        if (money < 0 && this.money < money)
+        {
+            return;
+        }
+        //改变玩家的钱
+        this.money += money;
+    }
+
+    /// <summary>
+    /// 宝石交互
+    /// </summary>
+    public void ChangeGem(int gem)
+    {
+        //判断钱够不够减 避免减成负数
+        if (gem < 0 && this.money < gem)
+        {
+            return;
+        }
+        //改变玩家的钱
+        this.money += gem;
     }
 }

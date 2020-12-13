@@ -13,10 +13,17 @@ public class GameDataMgr : BaseManager<GameDataMgr>
     private Dictionary<int, Item> itemsTableInfoDic = new Dictionary<int, Item>();
 
     /// <summary>
+    /// 商店面板的数据
+    /// </summary>
+    public List<ShopItemInfo> shopItemInfosList = new List<ShopItemInfo>();
+
+
+    /// <summary>
     /// 初始化数据
     /// </summary>
     public void Init() 
     {
+        ///加载道具表
         //把json表读取成字符串
         string jsonTableInfo = ResMgr.GetInstance().Load<TextAsset>("Json/ItemInfo").text;
         //把它序列化成我们要的类的格式
@@ -27,6 +34,13 @@ public class GameDataMgr : BaseManager<GameDataMgr>
             //不断的存起来
             itemsTableInfoDic.Add(itemsTable.info[i].id, itemsTable.info[i]);
         }
+        ///加载商店表
+        //把json表读取成字符串
+        string shopTableInfo = ResMgr.GetInstance().Load<TextAsset>("Json/ShopInfo").text;
+        //把它序列化成我们要的类的格式
+        ShopItemTable shopItemsTable = JsonUtility.FromJson<ShopItemTable>(shopTableInfo);
+        //记录一下解析下来的商店数据
+        shopItemInfosList = shopItemsTable.info;
     }
 
     /// <summary>
